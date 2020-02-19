@@ -4,11 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-<!-- 		<typeAlias type="com.test.board.vo.Customer" alias="Customer" /> -->
-<!-- 		<typeAlias type="com.test.board.vo.Board" alias="Board" /> -->
+		<typeAlias type="com.jumpproject.first.vo.Customer" alias="Customer" />
+		<typeAlias type="com.jumpproject.first.vo.FreeBoard" alias="FreeBoard" />
+		<typeAlias type="com.jumpproject.first.vo.FreeBoardComments" alias="FreeBoardComments" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/customerMapper.xml" />
-		<mapper resource="mapper/boardMapper.xml" />
+		<mapper resource="mapper/freeBoardMapper.xml" />
 	</mappers>
 </configuration>
