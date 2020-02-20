@@ -9,7 +9,7 @@
 		<typeAlias type="com.jumpproject.first.vo.FreeBoardComments" alias="FreeBoardComments" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mapper/customerMapper.xml" />
-		<mapper resource="mapper/freeBoardMapper.xml" />
+		<mapper resource="mapper/CustomerMapper.xml" />
+		<mapper resource="mapper/FreeBoardMapper.xml" />
 	</mappers>
 </configuration>

@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 게시판 처리 SQL -->
-<mapper namespace="com.test.board.dao.BoardMapper">
+<mapper namespace="com.jumpproject.first.dao.FreeBoard">
 
 	<!-- 게시글 저장 -->
-	<insert id="insertBoard" parameterType="Board">
+	<insert id="insertBoard" parameterType="FreeBoard">
 		insert into board (
 			boardnum
 			, id
@@ -23,7 +23,7 @@
 	</insert>
 	
 	<!-- 게시글 읽기 -->
-	<select id="getBoard" parameterType="int" resultType="Board">
+	<select id="getBoard" parameterType="int" resultType="FreeBoard">
 		select 
 			boardnum
 			, id
@@ -48,7 +48,7 @@
 	</update>
 	
 	<!-- 현재 페이지 목록 (검색 필터링 후) -->
-	<select id="listBoard" parameterType="string" resultType="Board">
+	<select id="listBoard" parameterType="string" resultType="FreeBoard">
 		select 
 			boardnum
 			, id
@@ -66,7 +66,7 @@
 
 
 	<!-- 글 삭제 -->
-	<delete id="deleteBoard" parameterType="Board">
+	<delete id="deleteBoard" parameterType="FreeBoard">
 		delete
 		from
 			board
@@ -76,7 +76,7 @@
 	</delete>
 
 	<!-- 글 수정 -->
-	<update id="updateBoard" parameterType="Board">
+	<update id="updateBoard" parameterType="FreeBoard">
 		update
 			board
 		set
