@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.jumpproject.first.vo.Customer" alias="Customer" />
-		<typeAlias type="com.jumpproject.first.vo.FreeBoard" alias="FreeBoard" />
-		<typeAlias type="com.jumpproject.first.vo.FreeBoardComments" alias="FreeBoardComments" />
+		<typeAlias type="com.jumpproject.www.vo.Customer" alias="Customer" />
+		<typeAlias type="com.jumpproject.www.vo.FreeBoard" alias="FreeBoard" />
+		<typeAlias type="com.jumpproject.www.vo.FreeBoardComments" alias="FreeBoardComments" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/CustomerMapper.xml" />

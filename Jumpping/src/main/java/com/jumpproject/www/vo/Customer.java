@@ -1,4 +1,4 @@
-package com.jumpproject.first.vo;
+package com.jumpproject.www.vo;
 
 public class Customer {
 	String custid; // 고객 아이디
