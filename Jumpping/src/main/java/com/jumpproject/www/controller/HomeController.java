@@ -35,6 +35,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+		// 컨트롤러를 통한 이동방법 계싼
 	}
 	
 }
