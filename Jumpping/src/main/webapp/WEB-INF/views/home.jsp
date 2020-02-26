@@ -1,6 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -57,9 +58,9 @@
 			    	<div class="row align-items-center justify-content-center">	
 						<nav id="nav-menu-container">
 							<ul class="nav-menu">
-							  <li class="menu-active"><a href="">Home</a></li>
+							  <li class="menu-active"><a href="/">Home</a></li>
 							  <li><a href="goAbout">런투유 소개</a></li>
-							  <li><a href="goService">줄넘기 코스</a></li>
+							  <li><a href="goProgram">줄넘기 코스</a></li>
 							  <li><a href="goTrainers">강사</a></li>						  	
 							  <li class="goMenu-has-children"><a href="">영상 및 게시판</a>
 							    <ul>
@@ -79,7 +80,6 @@
 							      <li><a href="packages.html">Packages</a></li>				              
 							    </ul>
 							  </li>  								  
-<!-- 							  <li><a href="elements.html">Elements</a></li>							  			          	           -->
 							  <li><a href="goContact">Contact</a></li>
 							</ul>
 						</nav><!-- #nav-menu-container -->		
