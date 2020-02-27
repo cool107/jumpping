@@ -60,26 +60,14 @@
 							<ul class="nav-menu">
 							  <li class="menu-active"><a href="/">Home</a></li>
 							  <li><a href="goAbout">런투유 소개</a></li>
+							  <li><a href="goTrainers">강사소개</a></li>
 							  <li><a href="goProgram">줄넘기 코스</a></li>
-							  <li><a href="goTrainers">강사</a></li>						  	
-							  <li class="goMenu-has-children"><a href="">영상 및 게시판</a>
+							  <li class="goMenu-has-children"><a href="">커뮤니티</a>
 							    <ul>
-							      <li><a href="blog-home.html">공지사항</a></li>
-							      <li><a href="blog-single.html">영상</a></li>
-							      <li class="menu-has-children"><a href="">자유게시판</a>
-							        <ul>
-							          <li><a href="#">Item One</a></li>
-							          <li><a href="#">Item Two</a></li>
-							        </ul>
-							      </li>					              
+							      <li><a href="goNoticeBoard">공지사항</a></li>
+							      <li><a href="goFreeBoard">런투유그램</a></li>
 							    </ul>
 							  </li>
-							  <li class="menu-has-children"><a href="">공지사항</a>
-							    <ul>
-							      <li><a href="schedule.html">Schedule</a></li>
-							      <li><a href="packages.html">Packages</a></li>				              
-							    </ul>
-							  </li>  								  
 							  <li><a href="goContact">Contact</a></li>
 							</ul>
 						</nav><!-- #nav-menu-container -->		
