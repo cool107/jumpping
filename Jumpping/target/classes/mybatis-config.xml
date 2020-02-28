@@ -7,9 +7,13 @@
 		<typeAlias type="com.jumpproject.www.vo.Customer" alias="Customer" />
 		<typeAlias type="com.jumpproject.www.vo.FreeBoard" alias="FreeBoard" />
 		<typeAlias type="com.jumpproject.www.vo.FreeBoardComments" alias="FreeBoardComments" />
+		<typeAlias type="com.jumpproject.www.vo.NoticeBoard" alias="NoticeBoard" />
+		<typeAlias type="com.jumpproject.www.vo.ReviewBoard" alias="ReviewBoard" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/CustomerMapper.xml" />
 		<mapper resource="mapper/FreeBoardMapper.xml" />
+		<mapper resource="mapper/NoticeBoardMapper.xml" />
+		<mapper resource="mapper/ReviewBoardMapper.xml" />
 	</mappers>
 </configuration>
