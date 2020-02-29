@@ -88,7 +88,7 @@
 							<p class="pt-10 pb-10 text-white">
 								선생님 줄넘기 뛰면 살빠져요? 이딴소리 하면 진짜 죽는다.
 							</p>
-							<a href="#" class="primary-btn">간편 회원가입</a>
+							<a href="goJoin" class="primary-btn">간편 회원가입</a>
 						</div>										
 					</div>
 				</div>					
