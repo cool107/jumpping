@@ -69,6 +69,7 @@
 							    </ul>
 							  </li>
 							  <li><a href="goContact">Contact</a></li>
+							  <li><a href="goSample">샘플양식모음</a></li>
 							</ul>
 						</nav><!-- #nav-menu-container -->		
 			    	</div>
