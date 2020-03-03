@@ -326,7 +326,7 @@
 							<p class="text-white">키(cm)</p>
 						</div>
 						<div class="col-lg-3">
-							<input type="text" class="form-control" id="height" placeholder="키 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '키 입력'" >
+							<input type="number" class="form-control" id="height" placeholder="키 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '키 입력'" >
 						</div>
 						<div class="col-lg-3">
 							<a role="button" id = "goBMI" class="primary-btn">체지방량(BMI) 확인</a>
@@ -337,15 +337,15 @@
 							<p class="text-white">체중(kg)</p>
 						</div>
 						<div class="col-lg-3">
-							<input type="text" class="form-control" id="weight"  name="weight" placeholder="몸무게 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '몸무게 입력'" >
+							<input type="number" class="form-control" id="weight"  name="weight" placeholder="몸무게 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '몸무게 입력'" >
 						</div>
 						<div class="col-lg-3">
-							<input type="text" class="form-control" id="result" placeholder="BMI 지수" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BMI 지수'" >
+							<input type="text" class="form-control" id="result" placeholder="BMI 지수" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BMI 지수'" readonly/>
 						</div>
 					</div>
 					<div class="row section-title relative">
 						<br>
-						<p class="text-white" id ="sendBMI"></p>
+						<h4 class="text-white" id ="sendBMI"></h4>
 					</div>
 				</div>	
 			</section>
@@ -609,6 +609,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				function goBMI() {
 				var height = $("#height").val();
 				var weight = $("#weight").val();
+				if(weight=='' || height==''){
+					$("#sendBMI").focus();
+					$("#sendBMI").html("키와 체중을 정확히 입력해주세요");
+				}
 				var data = {
 							"height" : height
 							,"weight" : weight
@@ -621,7 +625,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					success : function(resp) {
 							$("#result").focus();
 							$("#result").val(resp.toFixed(2));
-							
 							if(resp>=18.5&&resp<23){
 								$("#sendBMI").html("정상입니다. 줄넘기로 건강을 유지하세요");
 							}else if(resp>=23&&resp<25){
