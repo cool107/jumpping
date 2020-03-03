@@ -326,7 +326,7 @@
 							<p class="text-white">키(cm)</p>
 						</div>
 						<div class="col-lg-3">
-							<input type="text" class="form-control" name="height" placeholder="키 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '키 입력'" >
+							<input type="text" class="form-control" id="height" placeholder="키 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '키 입력'" >
 						</div>
 						<div class="col-lg-3">
 							<a role="button" id = "goBMI" class="primary-btn">체지방량(BMI) 확인</a>
@@ -340,8 +340,12 @@
 							<input type="text" class="form-control" id="weight"  name="weight" placeholder="몸무게 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '몸무게 입력'" >
 						</div>
 						<div class="col-lg-3">
-							<input type="text" class="form-control" id="height" name="result" placeholder="BMI 지수" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BMI 지수'" >
-						</div>							
+							<input type="text" class="form-control" id="result" placeholder="BMI 지수" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BMI 지수'" >
+						</div>
+					</div>
+					<div class="row section-title relative">
+						<br>
+						<p class="text-white" id ="sendBMI"></p>
 					</div>
 				</div>	
 			</section>
@@ -599,41 +603,41 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="js/main.js"></script>
 			<script>
 			$(function() {
-// 		    	$("#chatForm").on("click", goChatForm).css('cursor', 'pointer');
 				$("#goBMI").on('click', goBMI);
-				$("#translate").on("click", translastion);
-				$("#re").on('click', returnJap)
-				$('#wordCheckButton').on('click', wordCheck);
-				$('#generatePDF').on('click', savePDF);
-				})
+				});
 				
-				function translastion() {
-				height = $("#height").val();
-				weight = $("#weight").val();
+				function goBMI() {
+				var height = $("#height").val();
+				var weight = $("#weight").val();
 				var data = {
-							q : original
-							,target : 'en'
-							,source : 'ja'
-							,format: 'text' 	
-							
+							"height" : height
+							,"weight" : weight
 				}
-					var obj = JSON.stringify(data);
-					console.log(data);
-					var url='https://translation.googleapis.com/language/translate/v2?key=AIzaSyCaaYXwSPh2iD7r0XZdkWmu44vkJLAMq7w';
-					$.ajax({
-						method : 'post'			
-						, url  : url
-						, data : obj
-						, contentType: "application/json"
-						, success : function(resp) {
-							console.log(JSON.stringify(resp));
-							$("#translate").focus();
-							$("#thesisAbstract").val(resp.data.translations[0].translatedText);
+				console.log(data);
+				$.ajax({
+					method : 'get',
+					url : 'goBMI',
+					data : data,
+					success : function(resp) {
+							$("#result").focus();
+							$("#result").val(resp.toFixed(2));
+							
+							if(resp>=18.5&&resp<23){
+								$("#sendBMI").html("정상입니다. 줄넘기로 건강을 유지하세요");
+							}else if(resp>=23&&resp<25){
+								$("#sendBMI").html("과체중입니다. 줄넘기로 건강을 지키세요");
+							}else if(resp>=25&&resp<30){
+								$("#sendBMI").html("비만입니다. 줄넘기로 건강을 지키세요");
+							}else if(resp<18.5){
+								$("#sendBMI").html("저체중입니다. 줄넘기로 건강을 지키세요");
+							}else{
+								$("#sendBMI").html("고도비만입니다. 줄넘기로 건강을 지키세요");
+							}
 						}
 						, error : function(resp) {
 							console.log("error occured");
 						}
-					})
+					});
 	    }
 			
 			</script>
