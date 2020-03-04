@@ -626,7 +626,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 							$("#result").focus();
 							$("#result").val(resp.toFixed(2));
 							if(resp>=18.5&&resp<23){
-								$("#sendBMI").html("정상입니다. 줄넘기로 건강을 유지하세요");
+								$("#sendBMI").html("정상체중입니다. 줄넘기로 건강을 유지하세요");
 							}else if(resp>=23&&resp<25){
 								$("#sendBMI").html("과체중입니다. 줄넘기로 건강을 지키세요");
 							}else if(resp>=25&&resp<30){

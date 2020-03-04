@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.jumpproject.www.vo.Admin" alias="Admin" />
 		<typeAlias type="com.jumpproject.www.vo.Customer" alias="Customer" />
 		<typeAlias type="com.jumpproject.www.vo.FreeBoard" alias="FreeBoard" />
 		<typeAlias type="com.jumpproject.www.vo.FreeBoardComments" alias="FreeBoardComments" />
@@ -11,6 +12,7 @@
 		<typeAlias type="com.jumpproject.www.vo.ReviewBoard" alias="ReviewBoard" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="mapper/AdminMapper.xml" />
 		<mapper resource="mapper/CustomerMapper.xml" />
 		<mapper resource="mapper/FreeBoardMapper.xml" />
 		<mapper resource="mapper/NoticeBoardMapper.xml" />

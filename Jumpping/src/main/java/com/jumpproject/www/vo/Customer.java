@@ -1,11 +1,11 @@
 package com.jumpproject.www.vo;
 
 public class Customer {
-	String custid; // 고객 아이디
-	String password; // 비밀번호
-	String name; // 이름
-	String email; // 이메일
-	String joinDate;// 가입일
+	private String custid; // 고객 아이디
+	private String password; // 비밀번호
+	private String name; // 이름
+	private String joinDate;// 가입일
+	private String email; // 이메일
 
 	public Customer() {
 		super();
