@@ -86,5 +86,89 @@
 			boardnum = #{boardnum}
 			and id = #{id}
 	</update>
+	
+	<insert id="insertReply" parameterType="FreeBoardComments">				
+		insert into GroupBoardComments(			
+			groupBoardNum
+			,groupBoardCommentSeq		
+			, groupBoardSeq		
+			, gbcid
+			, groupBoardComment
+		) values (			
+			#{groupBoardNum}
+			,GROUPBOARDCOMMENTSEQ.nextval		
+			, #{groupBoardSeq}		
+			, #{gbcid}		
+			, #{groupBoardComment}		
+		)		
+	</insert>
+	
+	<select id="listReply" parameterType="FreeBoardComments" resultType="FreeBoardComments">					
+		select				
+			groupBoardNum			
+			, groupBoardCommentSeq			
+			, groupBoardSeq
+			, gbcid		
+			, groupBoardComment			
+			, to_char(groupBoardCommentDate, 'YYYY-mm-dd hh:mi') groupBoardCommentDate			
+		from				
+			GroupBoardComments			
+		where				
+			groupBoardNum = #{groupBoardNum}	
+			and groupBoardSeq=#{groupBoardSeq}
+		order by groupBoardCommentSeq desc				
+	</select>
+		
+	<select id="selectReply" parameterType="FreeBoardComments" resultType="FreeBoardComments">					
+		select				
+			groupBoardNum			
+			,groupBoardCommentSeq
+			,groupBoardSeq			
+			, id			
+			, text			
+			, to_char(groupBoardCommentDate, 'mm-dd hh:mi:ss') groupBoardCommentDate			
+		from				
+			GroupBoardComments			
+		where				
+			groupBoardNum = #{groupBoardNum}
+			and groupBoardCommentSeq=#{groupBoardCommentSeq}
+			and	groupBoardSeq=#{groupBoardSeq}	
+	</select>
+									
+	<update id="updateReply" parameterType="FreeBoardComments">					
+		update				
+			GroupBoardComments
+		set				
+			groupBoardComment = #{groupBoardComment}	
+		where				
+			groupBoardCommentSeq = #{groupBoardCommentSeq}		
+			and groupBoardSeq=#{groupBoardSeq}
+			and groupBoardNum=#{groupBoardNum}
+	</update>
+						
+	<delete id="deleteReply" parameterType="FreeBoardComments">				
+		delete			
+		from			
+			GroupBoardComments		
+		where			
+			groupBoardCommentSeq = #{groupBoardCommentSeq}		
+			and groupBoardSeq=#{groupBoardSeq}
+			and groupBoardNum=#{groupBoardNum}
+
+	</delete>
+	
+	<select id="getTotal" parameterType="map" resultType="int">					
+		select				
+			count(*)			
+		from				
+			GroupBoard
+		WHERE
+    		GROUPBOARDNUM = #{groupBoardNum}		
+			<choose>
+				<when test="keyField == 'groupBoardTitle'">and groupBoardTitle LIKE '%' || #{keyWord} || '%'</when>
+				<when test="keyField == 'groupBoardId'">and groupBoardId LIKE '%' || #{keyWord} || '%'</when>
+				<when test="keyField == 'groupBoardContent'">and groupBoardContent LIKE '%' || #{keyWord} || '%'</when>
+			</choose>
+	</select>
 
 </mapper>
