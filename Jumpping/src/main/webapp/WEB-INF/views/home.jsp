@@ -59,6 +59,7 @@
 						<nav id="nav-menu-container">
 							<ul class="nav-menu">
 							  <li class="menu-active"><a href="/">Home</a></li>
+							  <li><a href="goinfo_customer">회원 정보 확인</a></li>
 							  <li><a href="goAbout">런투유 소개</a></li>
 							  <li><a href="goTrainers">강사소개</a></li>
 							  <li><a href="goProgram">줄넘기 코스</a></li>
