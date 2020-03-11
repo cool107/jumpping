@@ -13,18 +13,12 @@
 			, password
 			, name
 			, email
-			, division
-			, idno
-			, address
 		)
 		values (
 			#{custid}
 			, #{password}
 			, #{name}
 			, #{email}
-			, #{division}
-			, #{idno}
-			, #{address}
 		)
 	</insert>
 	
@@ -40,9 +34,6 @@
 			password = #{password}
 			, name = #{name}
 			, email = #{email}
-			, division = #{division}
-			, idno = #{idno}
-			, address = #{address}
 		where
 			custid = #{custid}
 	</update>
