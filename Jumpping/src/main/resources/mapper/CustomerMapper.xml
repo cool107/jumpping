@@ -7,7 +7,7 @@
 <mapper namespace="com.jumpproject.www.dao.CustomerMapper">
 
 	<!-- 회원 정보 저장 -->
-	<insert id="insertCustomer" parameterType="Customer">
+	<insert id="insertCs" parameterType="Customer">
 		insert into customer (
 			custid
 			, password
