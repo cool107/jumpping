@@ -12,12 +12,14 @@
 			custid
 			, password
 			, name
+			, phone
 			, email
 		)
 		values (
 			#{custid}
 			, #{password}
 			, #{name}
+			, #{phone}
 			, #{email}
 		)
 	</insert>
@@ -27,12 +29,22 @@
 		select * from customer where custid = #{custid}
 	</select>
 	
+	<select id = "selectAll" resultType="Customer">
+		select * from customer
+	</select>
+	
+	<delete id="deleteCustomer" parameterType="int">
+		DELETE FROM customer
+		WHERE custid = #{custid}
+	</delete>
+	
 	<!-- 회원 정보 수정 -->
 	<update id="updateCustomer" parameterType="Customer">
 		update customer
 		set
 			password = #{password}
 			, name = #{name}
+			, phone = #{phone}
 			, email = #{email}
 		where
 			custid = #{custid}

@@ -1,24 +1,26 @@
 package com.jumpproject.www.vo;
 
 public class Customer {
-	private String custid; // °í°´ ¾ÆÀÌµğ
-	private String password; // ºñ¹Ğ¹øÈ£
-	private String name; // ÀÌ¸§
-	private String joinDate;// °¡ÀÔÀÏ
-	private String email; // ÀÌ¸ŞÀÏ
+	private String custid; // íšŒì›ì•„ì´ë””
+	private String password; // íšŒì›ë¹„ë²ˆ
+	private String name; // íšŒì›ì´ë¦„
+	private String joinDate;// ê°€ì…ì¼ì
+	private int phone;// ì „í™”ë²ˆí˜¸
+	private String email; // ì´ë©”ì¼
 
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(String custid, String password, String name, String email, String joinDate) {
+	public Customer(String custid, String password, String name, String joinDate, int phone, String email) {
 		super();
 		this.custid = custid;
 		this.password = password;
 		this.name = name;
-		this.email = email;
 		this.joinDate = joinDate;
+		this.phone = phone;
+		this.email = email;
 	}
 
 	public String getCustid() {
@@ -45,14 +47,6 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getJoinDate() {
 		return joinDate;
 	}
@@ -61,10 +55,26 @@ public class Customer {
 		this.joinDate = joinDate;
 	}
 
+	public int getPhone() {
+		return phone;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
-		return "Customer [custid=" + custid + ", password=" + password + ", name=" + name + ", email=" + email
-				+ ", joinDate=" + joinDate + "]";
+		return "Customer [custid=" + custid + ", password=" + password + ", name=" + name + ", joinDate=" + joinDate
+				+ ", phone=" + phone + ", email=" + email + "]";
 	}
 
 }

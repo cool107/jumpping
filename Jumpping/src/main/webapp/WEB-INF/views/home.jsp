@@ -1,7 +1,7 @@
-<%@ page session="false" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -19,12 +19,8 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>jumpping</title>
+		<title>IR SPORTS</title>
 	<style>
-	#partner1{ background-color: red }
-	#partner2{ background-color: white }
-	#partner3{ background-color: green }
-	#partner2 { text-align: center; }
 	</style>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
@@ -50,12 +46,19 @@
 				        		<h5><a href="mailto:rtyjumprope@naver.com">문의</a></h5>
 				  			</div>
 				  			<div class="col-md-4 col-4 header-top-bottom no-padding">
-				        		<h2><img class="img-fluid" src="img/logo1.jpg" width="50px" height="50px">IR SPORTS COMPANY</h2>
+				        		<h2><img class="img-fluid" src="img/logo1.jpg" width="50px" height="50px">IR  스포츠   COMPANY</h2>
 				  			</div>
-				  			<div class="col-md-4 col-4 header-top-right no-padding">
-<!-- 				        		<a href="tel:+010 9393 2955"><span class="lnr lnr-phone-handset"></span></a> -->
-				        		 
-				  			</div>				  							  			
+				  		<c:if test="${sessionScope.loginId != null}">
+							<div class="col-md-4 col-4 header-top-right no-padding">
+							<a href="">내정보 확인</a>&emsp;<a href="logoutCustomer">로그아웃</a>
+							</div>
+						</c:if>
+				  			
+				  		<c:if test="${sessionScope.loginId == null}">
+							<div class="col-md-4 col-4 header-top-right no-padding">
+				        		<a href="loginMember">로그인</a>&emsp;<a href="goJoin">회원가입</a>
+				  			</div>	
+						</c:if>
 				  		</div>
 				  		<div class="row align-items-center justify-content-center">
 				  			<div class="col-md-4 col-4 header-top-left no-padding">
@@ -64,8 +67,8 @@
 				  			<div class="col-md-4 col-4 header-top-bottom no-padding">
 				  			</div>
 				  			<div class="col-md-4 col-4 header-top-right no-padding">
-									<a href="https://www.facebook.com/profile.php?id=100004098786593" target="_blank"><i class="fa fa-facebook">페이스북 </i></a>
-									<a href="https://www.instagram.com/best_rty/" target="_blank"><i class="fa fa-instagram">인스타그램 </i></a>
+									<a href="https://www.facebook.com/profile.php?id=100004098786593" target="_blank"><i class="fa fa-facebook">페이스북 </i></a>&nbsp;
+									<a href="https://www.instagram.com/best_rty/" target="_blank"><i class="fa fa-instagram">인스타그램 </i></a>&nbsp;
 									<a href="https://blog.naver.com/rtyjumprope/221986603458" target="_blank"><i class="fa fa-blog">블로그</i></a>
 				  			</div>				  							  			
 				  		</div>			  					
@@ -82,9 +85,6 @@
 							  <li><a href="goinfo_customer">줄넘기 제품</a></li>
 							  <li><a href="goinfo_customer">운동 제품</a></li>
 							  <li><a href="goinfo_customer">줄넘기 제품</a></li>
-<!-- 							  <li><a href="goAbout">런투유 소개</a></li> -->
-<!-- 							  <li><a href="goTrainers">강사소개</a></li> -->
-<!-- 							  <li><a href="goProgram">줄넘기 코스</a></li> -->
 							  <li class="goMenu-has-children"><a href="">커뮤니티</a>
 							    <ul>
 							      <li><a href="goNoticeBoard">공지사항</a></li>
@@ -94,18 +94,20 @@
 							  <li><a href="goContact">공식파트너</a></li>
 							  <li><a href="goSample">샘플양식모음</a></li>
 							</ul>
-						</nav><!-- #nav-menu-container -->		
+						</nav>		
 			    	</div>
 			    </div>
-			  </header><!-- #header -->
-			  
+			  </header>
+			  <!-- #header -->
 
-			<br></br>
-<!-- Start top-course Area -->
-			<section class="top-course-area section-gap">
+			<!-- Start top-course Area -->
+			<section class="top-course-area section-gap"id="test" style="
+				background-image: url('resources/img/back.jpg') ;
+				background-color: 100%;">
 				<div class="container">
 					<div class="row section-title">
-						<h1><a href="#" class="genric-btn info">Info</a>티셔츠 &줄넘기 제품</h1>
+						<br></br>
+						<h1>티셔츠 &줄넘기 제품</h1>
 						<p>IR SPORTS는 단체 구매만 가능합니다.</p>
 					</div>	
 					<div class="row">
@@ -179,25 +181,100 @@
 						</div>
 					</div>
 				</div>	
+				<div class="container" >
+					<div class="row">
+						<div class="active-topcourse-carusel">
+							<div class="single-carusel item">
+								<div class="thumb">
+									<img src="img/shirt1.jpg" width="360px" height="212px">
+									<div class="join-btn"><a href="#">상세확인</a></div>
+								</div>
+								<div class="title-price d-flex justify-content-between">
+									<a href="#">
+										<h4>티셔츠</h4>
+									</a>
+								</div>
+							</div>
+							<div class="single-carusel item">
+								<div class="thumb">
+									<img src="img/pants1.jpg" width="360px" height="212px">
+									<div class="join-btn"><a href="#">상세확인</a></div>
+								</div>
+								<div class="title-price d-flex justify-content-between">
+									<a href="#">
+										<h4>바지</h4>
+									</a>
+								</div>
+							</div>
+							<div class="single-carusel item">
+								<div class="thumb">
+									<img src="img/rope1.jpg" width="360px" height="212px">
+									<div class="join-btn"><a href="#">상세확인</a></div>
+								</div>
+								<div class="title-price d-flex justify-content-between">
+									<a href="#">
+										<h4>즐넘기 제품</h4>
+									</a>
+								</div>
+							</div>	
+							<div class="single-carusel item">
+								<div class="thumb">
+									<img src="img/shirt1.jpg" width="360px" height="212px">
+									<div class="join-btn"><a href="#">상세확인</a></div>
+								</div>
+								<div class="title-price d-flex justify-content-between">
+									<a href="#">
+										<h4>티셔츠</h4>
+									</a>
+								</div>
+							</div>
+							<div class="single-carusel item">
+								<div class="thumb">
+									<img src="img/pants1.jpg" width="360px" height="212px">
+									<div class="join-btn"><a href="#">상세확인</a></div>
+								</div>
+								<div class="title-price d-flex justify-content-between">
+									<a href="#">
+										<h4>바지</h4>
+									</a>
+								</div>
+							</div>
+							<div class="single-carusel item">
+								<div class="thumb">
+									<img src="img/rope1.jpg" width="360px" height="212px">
+									<div class="join-btn"><a href="#">상세확인</a></div>
+								</div>
+								<div class="title-price d-flex justify-content-between">
+									<a href="#">
+										<h4>즐넘기 제품</h4>
+									</a>
+								</div>
+							</div>																													
+						</div>
+					</div>
+				</div>
 			</section>
 			<!-- End top-course Area -->
 			
-	
+			<section class="banner-area relative" id="home" style="height: 500px;">
+				<div class="overlay overlay-bg"></div>	
+				<div class="container">
+						<div class="banner-content col-lg-6 col-md-12 ">
+							<br></br><br></br>
+							<h1 class="text-uppercase">
+								주문, 견적문의			
+							</h1>
+							<p class="pt-10 pb-10 text-white">
+								티셔츠의 파격 할인 가격! 줄넘기 운동의 시작! IR SPORTS와 함께!
+							</p>
+							<a href="#" class="primary-btn">견적문의</a>
+						</div>										
+				</div>					
+			</section>			
+
 			<!-- Start brands Area -->
 			<section class="brands-area">
 			<div class="container">
-<!-- 				  <div class="row align-items-center justify-content-center"> -->
-<!-- 				  			<div class="col-md-4 col-4 header-top-left no-padding" > -->
-<!-- 				        		<h4 >공식 파트너</h4> -->
-<!-- 				  			</div> -->
-<!-- 				  			<div class="col-md-4 col-4 header-top-bottom no-padding"> -->
-<!-- 				  				<h4>IR SPORTS</h4> -->
-<!-- 				  			</div> -->
-<!-- 				  			<div class="col-md-4 col-4 header-top-right no-padding"> -->
-<!-- 								<h4>official partner</h4> -->
-<!-- 				  			</div>				  							  			 -->
-<!-- 				  		</div>		  					 -->
-<!-- 		  			</div> -->
 					<div class="section-top-border">
 						<div class="row">
 							<div class="col-md-4" >
@@ -221,24 +298,25 @@
 			    <div class="brand-wrap">
 			        <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
 			            <div class="col single-brand">
-			                <a href="#"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
+			                <a href="https://blog.naver.com/rtyjumprope/221986603458" target="_blank"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
 			            </div>
 			            <div class="col single-brand">
-			                <a href="#"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
+			                 <a href="https://blog.naver.com/rtyjumprope/221986603458" target="_blank"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
 			            </div>
 			            <div class="col single-brand">
-			                <a href="#"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
+			                 <a href="https://blog.naver.com/rtyjumprope/221986603458" target="_blank"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
 			            </div>
 			            <div class="col single-brand">
-			                <a href="#"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
+			                 <a href="https://blog.naver.com/rtyjumprope/221986603458" target="_blank"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
 			            </div>
 			            <div class="col single-brand">
-			                <a href="#"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
+			                 <a href="https://blog.naver.com/rtyjumprope/221986603458" target="_blank"><img class="mx-auto" src="img/jumpping1.png" alt=""></a>
 			            </div>
 			        </div>
 			    </div>
 			</div>
-			</section>
+		</div>
+		</section>
 			
 						<!-- Start calculation Area -->
 			<section class="aclculation-area section-gap relative">
@@ -277,6 +355,7 @@
 				</div>	
 			</section>
 			<!-- End calculation Area -->
+			
 			<!-- End brands Area -->
 			
 <!-- 			<!-- Start cta Area --> 
@@ -562,8 +641,6 @@
 								<p>E-MAIL : rtyjumprope@naver.com</p>
 								<p>사업자번호 : 502-28-84397</p>
 <!-- 								<div class="d-flex flex-row" id="mc_embed_signup"> -->
-
-
 <!-- 									  <form class="navbar-form" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get"> -->
 <!-- 									    <div class="input-group add-on align-items-center d-flex"> -->
 <!-- 									      	<input class="form-control" name="EMAIL" placeholder="Your Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email address'" required="" type="email"> -->
@@ -583,13 +660,7 @@
 					<div class="footer-bottom row align-items-center">
 						<p class="footer-text m-0 col-lg-6 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-<!-- 						<div class="col-lg-6 col-sm-12 footer-social"> -->
-<!-- 							<a href="#"><i class="fa fa-facebook"></i></a> -->
-<!-- 							<a href="#"><i class="fa fa-twitter"></i></a> -->
-<!-- 							<a href="#"><i class="fa fa-dribbble"></i></a> -->
-<!-- 							<a href="#"><i class="fa fa-behance"></i></a> -->
-<!-- 						</div> -->
+
 					</div>
 				</div>
 			</footer>	
